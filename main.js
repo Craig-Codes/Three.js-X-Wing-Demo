@@ -238,10 +238,10 @@ const rebelButton = document.getElementsByTagName("img"); // returns an array of
 rebelButton[0].addEventListener("click", yodaReveal);
 
 function yodaReveal() {
-  if (scene.children[14].children[0].visible) {
-    scene.children[14].children[0].visible = false;
+  if (scene.children[13].children[0].visible) {
+    scene.children[13].children[0].visible = false;
   } else {
-    scene.children[14].children[0].visible = true; // makes yoda visible on x-wing
+    scene.children[13].children[0].visible = true; // makes yoda visible on x-wing
   }
 }
 
