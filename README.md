@@ -5,3 +5,5 @@ I built this X-Wing Fighter information page to learn the basics of the Three.js
 I've learned how to import objects, create objects, import a picture as a background and interaction and manipulation of imported objects. 
 
 This has been my first time working with any JS library rather than using vanilla JS.
+
+I added in an easter egg based on Disneys new The Mandarloria TV Show. When the rebel alliance symbol is clicked, 'the child' appears on top of the X-Wing Fighter!
