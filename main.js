@@ -62,6 +62,7 @@ yodaLoader.load("/yoda/scene.gltf", gltf => {
   yoda.position.z -= 175;
   yoda.position.y += 45;
   yoda.visible = false;
+  yoda.name = "yoda";
   scene.add(gltf.scene);
 });
 
