@@ -1,6 +1,6 @@
 # Three.js-X-Wing-Demo
 
-I built this X-Wing Fighter information page to learn the basics of the Three.js Library. The basic premise is that you can see a 3D X-Wing Fighter and click on different components to get some basic information. 
+I built this X-Wing Fighter information page to learn the basics of the Three.js Library. The basic premise is that you can see a 3D X-Wing Fighter and click on different components to get some basic information. I also wanted the 3D model to be able to be rotated by the user using either a mouse or finger on a touch device.
 
 I've learned how to import objects, create objects, import a picture as a background and interaction and manipulation of imported objects. 
 
