@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "star_jedi_hollowregular";
+  src: url("fonts/starjhol.woff2") format("woff2"),
+    url("fonts/starjhol.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes moveTitle {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 50px;
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+h1 {
+  color: yellow;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+  font-family: "star_jedi_hollowregular", Arial, sans-serif;
+  font-size: 4vh;
+  animation: moveTitle 5s;
+  animation-fill-mode: forwards;
+}
+
+h2 {
+  color: white;
+  position: absolute;
+  font-family: "star_jedi_hollowregular", Arial, sans-serif;
+  font-size: 2.5vh;
+  bottom: 100px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
+
+#rebel {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: block;
+  top: 30px;
+  right: 50px;
+}
