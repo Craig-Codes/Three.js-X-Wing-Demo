@@ -11,7 +11,7 @@ function init() {
   backgroundLoader = new THREE.TextureLoader();
   backgroundLoader.setCrossOrigin("");
   bgTexture = backgroundLoader.load(
-    "/images/star-sky-background.jpg",
+    "Three.js-X-Wing-Demo/images/star-sky-background.jpg",
     texture => {
       const img = texture.image;
       bgWidth = img.width;
