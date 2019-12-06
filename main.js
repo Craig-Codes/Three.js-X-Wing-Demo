@@ -11,7 +11,7 @@ const scene = new THREE.Scene();
 backgroundLoader = new THREE.TextureLoader();
 backgroundLoader.setCrossOrigin("");
 bgTexture = backgroundLoader.load(
-  "/images/star-sky-background.jpg",
+  "/Three.js-X-Wing-Demo/images/star-sky-background.jpg",
   texture => {
     const img = texture.image;
     bgWidth = img.width;
@@ -55,7 +55,7 @@ xwingLoader.load("scene.gltf", gltf => {
 });
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
-yodaLoader.load("/yoda/scene.gltf", gltf => {
+yodaLoader.load("/Three.js-X-Wing-Demo/yoda/scene.gltf", gltf => {
   const yoda = gltf.scene.children[0]; // get the 3d model
   yoda.scale.set(10, 10, 10); // reduce model size by half
   console.log(yoda);
