@@ -230,24 +230,6 @@ function onDocumentMouseDown(event) {
   }
 }
 
-function onDocumentMouseMove(event) {
-
-    var mouse = new THREE.Vector2();
-    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-    var raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera( mouse, camera );
-    var intersects = raycaster.intersectObjects( planes );
-
-    if(intersects.length > 0) {
-        $('html,body').css('cursor', 'pointer');
-    } else {
-        $('html,body').css('cursor', 'default');
-    }
-
-}
-
 function animate() {
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
