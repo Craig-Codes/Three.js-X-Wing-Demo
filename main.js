@@ -236,6 +236,7 @@ function animate() {
 
 const rebelButton = document.getElementsByTagName("img"); // returns an array of elements
 rebelButton[0].addEventListener("click", yodaReveal);
+rebelButton[0].addEventListener("mousemove", testFunc);
 
 function yodaReveal() {
   if (scene.children[13].children[0].visible) {
@@ -243,6 +244,10 @@ function yodaReveal() {
   } else {
     scene.children[13].children[0].visible = true; // makes yoda visible on x-wing
   }
+}
+
+function testFunc(){
+  console.log("test")
 }
 
 // function to check if mouse should be a pointer (pointer when over an interactive object)
@@ -264,6 +269,6 @@ function yodaReveal() {
 
 document.addEventListener("mousedown", onDocumentMouseDown, false);
 document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
-window.addEventListener("mousemove", onMouseMove);
+document.addEventListener("mousemove", onMouseMove);
 
 animate(); // animation loop to keep updating scene
