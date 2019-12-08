@@ -257,7 +257,7 @@ function yodaReveal() {
    
    if(intersects.length > 0){
      $('html,body').css('cursor','pointer');//mouse cursor change
-     else {
+   }else {
        $('html,body').css('cursor','cursor');
      }
    }
