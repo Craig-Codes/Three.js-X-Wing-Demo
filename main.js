@@ -260,6 +260,8 @@ function testFunc(){
 
   const intersects = raycaster.intersectObjects(xwingObjects); 
    
+   console.log("object name ==== ", intersects[0].object.name);
+   
    if(intersects[0].object.name === "cannonOne" ||
     intersects[0].object.name === "cannonTwo" ||
     intersects[0].object.name === "cannonThree" ||
