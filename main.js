@@ -267,7 +267,12 @@ function testFunc(){
     intersects[0].object.name === "cannonThree" ||
     intersects[0].object.name === "cannonFour" ||
       intersects[0].object.name === "r2d2Cube" ||
-      intersects[0].object.name === "noseCone"
+      intersects[0].object.name === "noseCone" ||
+      intersects[0].object.name === "thrusterOne" ||
+      intersects[0].object.name === "thrusterTwo" ||
+      intersects[0].object.name === "thrusterThree" ||
+      intersects[0].object.name === "thrusterFour" ||
+      intersects[0].object.name === "cockpit"
      ){
      $('html,body').css('cursor','pointer');//mouse cursor change
    } else {
