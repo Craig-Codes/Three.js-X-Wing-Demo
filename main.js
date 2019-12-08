@@ -260,7 +260,13 @@ function testFunc(){
 
   const intersects = raycaster.intersectObjects(xwingObjects); 
    
-   if(intersects.length > 0){
+   if(intersects[0].object.name === "cannonOne" ||
+    intersects[0].object.name === "cannonTwo" ||
+    intersects[0].object.name === "cannonThree" ||
+    intersects[0].object.name === "cannonFour" ||
+      intersects[0].object.name === "r2d2Cube" ||
+      intersects[0].object.name === "noseCone"
+     ){
      $('html,body').css('cursor','pointer');//mouse cursor change
    } else {
        $('html,body').css('cursor','cursor');
@@ -269,7 +275,7 @@ function testFunc(){
 
 document.addEventListener("mousedown", onDocumentMouseDown, false);
 document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
-window.onmousemove = onMouseMove();
+// window.onmousemove = onMouseMove();
 document.getElementById('e').onmousemove = onMouseMove;
 
 animate(); // animation loop to keep updating scene
