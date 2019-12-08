@@ -246,4 +246,20 @@ function yodaReveal() {
   }
 }
 
+// function to check if mouse should be a pointer (pointer whne over an interactive object)
+ function onMouseMove(){
+   mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+  mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+
+  const intersects = raycaster.intersectObjects(xwingObjects); 
+   
+   if(intersects.length > 0){
+     $('html,body').css('cursor','pointer');//mouse cursor change
+     else {
+       $('html,body').css('cursor','cursor');
+     }
+   }
+   
 animate(); // animation loop to keep updating scene
