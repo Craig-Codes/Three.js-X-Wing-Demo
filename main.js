@@ -264,3 +264,4 @@ function yodaReveal() {
    }
    
 animate(); // animation loop to keep updating scene
+document.onMouseMove = onMouseMove();
