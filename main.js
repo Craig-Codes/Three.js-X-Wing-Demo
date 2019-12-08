@@ -282,7 +282,5 @@ function testFunc(){
 
 document.addEventListener("mousedown", onDocumentMouseDown, false);
 document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
-// window.onmousemove = onMouseMove();
-document.getElementById('e').onmousemove = onMouseMove;
-
+document.addEventListener("mousemove", onMouseMove);
 animate(); // animation loop to keep updating scene
