@@ -167,8 +167,7 @@ scene.add(noseCone);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-document.addEventListener("mousedown", onDocumentMouseDown, false);
-document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
+
 
 function onDocumentTouchStart(event) {
   event.preventDefault();
@@ -262,6 +261,9 @@ function yodaReveal() {
        $('html,body').css('cursor','cursor');
      }
    }
-   
+
+document.addEventListener("mousedown", onDocumentMouseDown, false);
+document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
+document.addEventListener("onmousemove", onMouseMove);
+
 animate(); // animation loop to keep updating scene
-document.onMouseMove = onMouseMove();
