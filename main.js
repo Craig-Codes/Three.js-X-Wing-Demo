@@ -264,6 +264,6 @@ function yodaReveal() {
 
 document.addEventListener("mousedown", onDocumentMouseDown, false);
 document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
-document.addEventListener("onmousemove", onMouseMove);
+window.addEventListener("mousemove", onMouseMove);
 
 animate(); // animation loop to keep updating scene
