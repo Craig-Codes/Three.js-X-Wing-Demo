@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-param-reassign */
 /* eslint-disable quotes */
@@ -6,9 +7,11 @@
 // eslint-disable-next-line no-use-before-define
 // sets up scene, camera , lighting and loads 3d object (and objects to click within object!)
 
-const scene = new THREE.Scene();
+// Three.js requires a Scene, Camera and Renderer.
+
+const scene = new THREE.Scene(); // Three.js scene is the canvas for all 3D objects
 // scene.background = new THREE.Color(0x111111); // simple color, not needed
-backgroundLoader = new THREE.TextureLoader();
+backgroundLoader = new THREE.TextureLoader(); // Used to Load in a background image rather than just a plain background
 backgroundLoader.setCrossOrigin("");
 bgTexture = backgroundLoader.load(
   "/Three.js-X-Wing-Demo/images/star-sky-background.jpg",
@@ -20,45 +23,44 @@ bgTexture = backgroundLoader.load(
 );
 scene.background = bgTexture;
 
-const camera = new THREE.PerspectiveCamera(
+const camera = new THREE.PerspectiveCamera( // Camera setup is always required
   40,
   window.innerWidth / window.innerHeight,
   1,
   5000
 );
-camera.rotation.y = (45 / 180) * Math.PI;
+camera.rotation.y = (45 / 180) * Math.PI; // Sets up camera position
 camera.position.x = 1100;
 camera.position.y = 20;
 camera.position.z = 1000;
 
-const hlight = new THREE.AmbientLight(0x404040, 6); // soft white light
+const hlight = new THREE.AmbientLight(0x404040, 6); // sets up scene lighting. Ambient Light effects all objects
 scene.add(hlight);
-directionalLight = new THREE.DirectionalLight(0xffffff, 10);
-directionalLight.position.set(0, 1, 0); // sets from above
+directionalLight = new THREE.DirectionalLight(0xffffff, 10); // Directional light highlights certain objects.
+directionalLight.position.set(0, 1, 0); // sets directional light to be from the top down to cast shadows correctly
 directionalLight.castShadow = true;
 
 const light = new THREE.PointLight(0xffffff, 1);
 directionalLight.position.set(100, 1000, 100); // sets from above
 scene.add(light);
 
-const renderer = new THREE.WebGLRenderer({ antialias: true }); // anti-aliasing makes it look better!
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement); // element created by the renderer is added to html body
+const renderer = new THREE.WebGLRenderer({ antialias: true }); // anti-aliasing makes 3D look better
+renderer.setSize(window.innerWidth, window.innerHeight); // Sets the scene size to match browser window
+document.body.appendChild(renderer.domElement); // elements created by the renderer added to html body
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement); // Needed for Orbital controls to work
 
-const xwingLoader = new THREE.GLTFLoader(); // loads in the loader file
+const xwingLoader = new THREE.GLTFLoader(); // loads in the 3D model in GLTF format. Other loaders for other file types are avaliable.
 xwingLoader.load("scene.gltf", gltf => {
-  const xwing = gltf.scene.children[0]; // get the 3d model
-  xwing.scale.set(7, 7, 7); // reduce model size by half
-  scene.add(gltf.scene);
+  const xwing = gltf.scene.children[0]; // Adds the 3D model to gltf.scene.children[0].
+  xwing.scale.set(7, 7, 7); // changes the 3D Model size
+  scene.add(gltf.scene); // adds the model to the three.js scene
 });
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("/Three.js-X-Wing-Demo/yoda/scene.gltf", gltf => {
   const yoda = gltf.scene.children[0]; // get the 3d model
   yoda.scale.set(10, 10, 10); // reduce model size by half
-  console.log(yoda);
   yoda.position.z -= 175;
   yoda.position.y += 45;
   yoda.visible = false;
@@ -66,22 +68,23 @@ yodaLoader.load("/Three.js-X-Wing-Demo/yoda/scene.gltf", gltf => {
   scene.add(gltf.scene);
 });
 
-// cube creation:
-const xwingObjects = [];
+// cube creation to act as hotspots which can be clicked on the 3D model:
 
-const geometryR2d2 = new THREE.BoxGeometry(50, 50, 50); // skelleton of the object
-const geometryThrust = new THREE.BoxGeometry(50, 50, 200); // skelleton of the object
-const geometryCockpit = new THREE.BoxGeometry(50, 30, 80); // skelleton of the object
+const xwingObjects = []; // Array to store all boxes once they have been created, used by a raycaster to detect if objects have been selected
+
+const geometryR2d2 = new THREE.BoxGeometry(50, 50, 50); // skeleton of the object, defining its size etc
+const geometryThrust = new THREE.BoxGeometry(50, 50, 200);
+const geometryCockpit = new THREE.BoxGeometry(50, 30, 80);
 const geometryCannons = new THREE.BoxGeometry(27, 30, 350);
 const geometryNose = new THREE.BoxGeometry(45, 45, 70);
 
 const material = new THREE.MeshBasicMaterial({ color: 0xff0000 }); // Skin of the object
-material.transparent = true;
+material.transparent = true; // required is you want to use an opacity settings on the material color
 material.opacity = 0; // opacity used for when setting up the mesh locations so that the boxes can be seen
 
 const r2d2Cube = new THREE.Mesh(geometryR2d2, material);
 scene.add(r2d2Cube); // cube is created and added to the scene
-r2d2Cube.name = "r2d2Cube";
+r2d2Cube.name = "r2d2Cube"; // cube is named so that it can easily be accessed and referenced
 xwingObjects.push(r2d2Cube); // push into an array used by raycaster
 r2d2Cube.position.y += 50;
 r2d2Cube.position.z -= 90;
@@ -164,23 +167,31 @@ noseCone.position.y += 10;
 noseCone.position.z += 250;
 scene.add(noseCone);
 
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+const raycaster = new THREE.Raycaster(); // new raycaster setup to identify what is being clicked.
+const mouse = new THREE.Vector2(); // mouse needs setup as a 2D object so that raycaster knows what is being looked at
 
+// Event Listeners
+const rebelButton = document.getElementsByTagName("img"); // returns an array of elements
+rebelButton[0].addEventListener("click", yodaReveal);
+document.addEventListener("mousedown", onDocumentMouseDown, false);
+document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
+document.addEventListener("mousemove", onMouseMove);
 
+animate(); // animation loop to keep updating scene
 
+// Function used to allow raycaster to work on touch devices
 function onDocumentTouchStart(event) {
   event.preventDefault();
-
   event.clientX = event.touches[0].clientX;
   event.clientY = event.touches[0].clientY;
   onDocumentMouseDown(event);
 }
 
+// Function controls what happens when mouse is pressed. Raycaster is used to see if mouse is over the location of a hotspot
 function onDocumentMouseDown(event) {
   event.preventDefault();
 
-  mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+  mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1; // mouse needs setup based on the screen size so that it is accurate
   mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
 
   raycaster.setFromCamera(mouse, camera);
@@ -192,95 +203,101 @@ function onDocumentMouseDown(event) {
     intersects[0].object.name = "placeholder"; // giving empty object a  name to avoid errors
   }
 
-  if (intersects[0].object.name === "r2d2Cube") {
-    console.log("R2D2");
-    document.getElementById("component").innerHTML =
-      "Astromech Droid - Navigation / Repair system";
-  }
-  if (
-    intersects[0].object.name === "thrusterOne" ||
-    intersects[0].object.name === "thrusterTwo" ||
-    intersects[0].object.name === "thrusterThree" ||
-    intersects[0].object.name === "thrusterFour"
-  ) {
-    console.log("Thruster");
-    document.getElementById("component").innerHTML =
-      "Engines - 4 x Incom 4L4 Fusail Thrusters";
-  }
-  if (intersects[0].object.name === "cockpit") {
-    console.log("cockpit");
-    document.getElementById("component").innerHTML =
-      "Cockpit - houses pilot, ejector seat, life-support system, and comms equipment";
-  }
-  if (
-    intersects[0].object.name === "cannonOne" ||
-    intersects[0].object.name === "cannonTwo" ||
-    intersects[0].object.name === "cannonThree" ||
-    intersects[0].object.name === "cannonFour"
-  ) {
-    console.log("cannon");
-    document.getElementById("component").innerHTML =
-      "Armament - 4 x Taim and Bak KX9 Laser Cannons";
-  }
-  if (intersects[0].object.name === "noseCone") {
-    console.log("noseCone");
-    document.getElementById("component").innerHTML =
-      "Nose Cone - houses sensor and targeting systems (for when the force isn't being used)";
+  // Switch statement controls what happens when each hotspot is pressed
+  switch (intersects[0].object.name) {
+    case "thrusterOne":
+      document.getElementById("component").innerHTML =
+        "Engines - 4 x Incom 4L4 Fusail Thrusters";
+      break;
+    case "thrusterTwo":
+      document.getElementById("component").innerHTML =
+        "Engines - 4 x Incom 4L4 Fusail Thrusters";
+      break;
+    case "thrusterThree":
+      document.getElementById("component").innerHTML =
+        "Engines - 4 x Incom 4L4 Fusail Thrusters";
+      break;
+    case "thrusterFour":
+      document.getElementById("component").innerHTML =
+        "Engines - 4 x Incom 4L4 Fusail Thrusters";
+      break;
+    case "r2d2Cube":
+      document.getElementById("component").innerHTML =
+        "Astromech Droid - Navigation / Repair system";
+      break;
+    case "cockpit":
+      document.getElementById("component").innerHTML =
+        "Cockpit - houses pilot, ejector seat, life-support system, and comms equipment";
+      break;
+    case "noseCone":
+      document.getElementById("component").innerHTML =
+        "Nose Cone - houses sensor and targeting systems (for when the force isn't being used)";
+      break;
+    case "cannonOne":
+      document.getElementById("component").innerHTML =
+        "Armaments - 4 x Taim and Bak KX9 Laser Cannons";
+      break;
+    case "cannonTwo":
+      document.getElementById("component").innerHTML =
+        "Armaments - 4 x Taim and Bak KX9 Laser Cannons";
+      break;
+    case "cannonThree":
+      document.getElementById("component").innerHTML =
+        "Armaments - 4 x Taim and Bak KX9 Laser Cannons";
+      break;
+    case "cannonFour":
+      document.getElementById("component").innerHTML =
+        "Armaments - 4 x Taim and Bak KX9 Laser Cannons";
+      break;
   }
 }
 
+// Function sets a recursive animation loop - animate is constantly called to check for three.js scene updates and to keep rendering any changes
 function animate() {
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
 
-const rebelButton = document.getElementsByTagName("img"); // returns an array of elements
-rebelButton[0].addEventListener("click", yodaReveal);
-rebelButton[0].addEventListener("mousemove", testFunc);
-
+// Easter egg - when rebel symbol is clicked, 'The Child' appears on top of X-wing Fighter!
 function yodaReveal() {
   if (scene.children[13].children[0].visible) {
     scene.children[13].children[0].visible = false;
   } else {
-    scene.children[13].children[0].visible = true; // makes yoda visible on x-wing
+    scene.children[13].children[0].visible = true;
   }
 }
 
-function testFunc(){
-  console.log("test")
-}
-
 // function to check if mouse should be a pointer (pointer when over an interactive object)
- function onMouseMove(){
-   console.log("mouse is moving");
-   mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+function onMouseMove() {
+  mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
   mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
 
   raycaster.setFromCamera(mouse, camera);
 
-  const intersects = raycaster.intersectObjects(xwingObjects); 
-   
-   console.log("object name ==== ", intersects[0].object.name);
-   
-   if(intersects[0].object.name === "cannonOne" ||
+  const intersects = raycaster.intersectObjects(xwingObjects);
+
+  if (intersects.length === 0) {
+    // Sets up a placeholder to avoid error if no intersects are detected
+    intersects[0] = {}; // just setting up an empty object to avoid errors
+    intersects[0].object = {}; // setting up an object within the object to avoid errors
+    intersects[0].object.name = "placeholder"; // giving empty object a  name to avoid errors
+  }
+
+  if (
+    intersects[0].object.name === "cannonOne" ||
     intersects[0].object.name === "cannonTwo" ||
     intersects[0].object.name === "cannonThree" ||
     intersects[0].object.name === "cannonFour" ||
-      intersects[0].object.name === "r2d2Cube" ||
-      intersects[0].object.name === "noseCone" ||
-      intersects[0].object.name === "thrusterOne" ||
-      intersects[0].object.name === "thrusterTwo" ||
-      intersects[0].object.name === "thrusterThree" ||
-      intersects[0].object.name === "thrusterFour" ||
-      intersects[0].object.name === "cockpit"
-     ){
-     $('html,body').css('cursor','pointer');//mouse cursor change
-   } else {
-       $('html,body').css('cursor','cursor');
-     }
-   }
-
-document.addEventListener("mousedown", onDocumentMouseDown, false);
-document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
-document.addEventListener("mousemove", onMouseMove);
-animate(); // animation loop to keep updating scene
+    intersects[0].object.name === "r2d2Cube" ||
+    intersects[0].object.name === "noseCone" ||
+    intersects[0].object.name === "thrusterOne" ||
+    intersects[0].object.name === "thrusterTwo" ||
+    intersects[0].object.name === "thrusterThree" ||
+    intersects[0].object.name === "thrusterFour" ||
+    intersects[0].object.name === "cockpit"
+  ) {
+    $("html,body").css("cursor", "pointer"); // mouse cursor change using jQuery
+  } else if (intersects[0].object.name === "placeholder") {
+    $("html,body").css("cursor", "default"); // mouse cursor change using jQuery
+  }
+}
