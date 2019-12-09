@@ -1,12 +1,3 @@
-/* eslint-disable default-case */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-param-reassign */
-/* eslint-disable quotes */
-/* eslint-disable no-undef */
-/* eslint-disable linebreak-style */
-// eslint-disable-next-line no-use-before-define
-// sets up scene, camera , lighting and loads 3d object (and objects to click within object!)
-
 // Three.js requires a Scene, Camera and Renderer.
 
 const scene = new THREE.Scene(); // Three.js scene is the canvas for all 3D objects
