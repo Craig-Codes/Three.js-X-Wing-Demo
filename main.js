@@ -49,7 +49,7 @@ xwingLoader.load("scene.gltf", gltf => {
 });
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
-yodaLoader.load("/Three.js-X-Wing-Demo/yoda/scene.gltf", gltf => {
+yodaLoader.load("yoda/scene.gltf", gltf => {
   const yoda = gltf.scene.children[0]; // get the 3d model
   yoda.scale.set(10, 10, 10); // reduce model size by half
   yoda.position.z -= 175;
