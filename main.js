@@ -5,7 +5,7 @@ const scene = new THREE.Scene(); // Three.js scene is the canvas for all 3D obje
 backgroundLoader = new THREE.TextureLoader(); // Used to Load in a background image rather than just a plain background
 backgroundLoader.setCrossOrigin("");
 bgTexture = backgroundLoader.load(
-  "/Three.js-X-Wing-Demo/images/star-sky-background.jpg",
+  "images/star-sky-background.jpg",
   texture => {
     const img = texture.image;
     bgWidth = img.width;
