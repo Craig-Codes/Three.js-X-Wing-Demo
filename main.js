@@ -55,24 +55,18 @@ xwingLoader.load(
 
 	},
 	
-	// called while loading is progressing
-	function ( xhr ) {
-
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened' );
-
-	},
 	function ( onStart ) {
 
 		console.log( 'Started Loading' );
 
 	},
 );
+
+let xwingObject = 'scene.gltf';
+
+xwingObject.onload = function() {
+  alert(`xwing loaded`);
+};
 
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
