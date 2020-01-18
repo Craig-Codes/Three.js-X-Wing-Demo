@@ -59,7 +59,7 @@ xwingLoader.load(
 
 	},
 	// called while loading is progressing
-	function ( onProgress ) {
+	function ( onLoad ) {
 
 		console.log( 'completed Loading' );
 
