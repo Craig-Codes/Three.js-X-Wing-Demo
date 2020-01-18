@@ -71,7 +71,7 @@ xwingLoader.load(
 );
 
 xwingLoader.onload = function() {
-  console.log(`xwing loaded`);
+  console.log(`xwing loaded`)};
 
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
