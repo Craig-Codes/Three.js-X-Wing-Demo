@@ -46,10 +46,10 @@ xwingLoader.load("scene.gltf", gltf => {
   const xwing = gltf.scene.children[0]; // Adds the 3D model to gltf.scene.children[0].
   xwing.scale.set(7, 7, 7); // changes the 3D Model size
   scene.add(gltf.scene); // adds the model to the three.js scene
-};
+},
                 function ( onLoad ) {
 
-		console.log( 'Loaded' ););
+		console.log( 'Loaded');});
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
