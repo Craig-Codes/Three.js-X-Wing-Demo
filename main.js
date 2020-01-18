@@ -59,9 +59,9 @@ xwingLoader.load(
 
 	},
 	// called while loading is progressing
-	function ( onLoad, 'scene.gltf' ) {
+	function ( xhr ) {
 
-		console.log( 'completed Loading' );
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
 	},
 	// called when loading has errors
