@@ -1371,8 +1371,8 @@ THREE.GLTFLoader = ( function () {
 
 			} else {
 
-				console.warn( 'THREE.GLTFLoader: Invalid extras.targetNames length. Ignoring names.' );
 
+				
 			}
 
 		}
@@ -1472,7 +1472,7 @@ THREE.GLTFLoader = ( function () {
 				asset: json.asset,
 				parser: parser,
 				userData: {},
-				console.log("loaded"),
+
 			};
 
 			addUnknownExtensionsToUserData( extensions, result, json );
