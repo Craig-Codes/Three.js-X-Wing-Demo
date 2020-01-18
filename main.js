@@ -54,11 +54,7 @@ xwingLoader.load(
 		scene.add( gltf.scene );
 
 	},
-	function ( onStart ) {
-
-		console.log( 'Started Loading' );
-
-	},
+	
 	// called while loading is progressing
 	function ( xhr ) {
 
@@ -69,6 +65,11 @@ xwingLoader.load(
 	function ( error ) {
 
 		console.log( 'An error happened' );
+
+	},
+	function ( onStart ) {
+
+		console.log( 'Started Loading' );
 
 	},
 );
