@@ -6,14 +6,6 @@
   font-style: normal;
 }
 
-@keyframes moveTitle {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 50px;
-  }
-}
 
 body {
   width: 100vw;
@@ -25,15 +17,14 @@ body {
 h1 {
   color: yellow;
   position: absolute;
-  top: -100px;
+  top: 50px;
   width: 100%;
   text-align: center;
   z-index: 100;
   display: block;
   font-family: "star_jedi_hollowregular", Arial, sans-serif;
   font-size: 4vh;
-  animation: moveTitle 5s;
-  animation-fill-mode: forwards;
+
 }
 
 h2 {
