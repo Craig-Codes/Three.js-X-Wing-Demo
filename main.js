@@ -69,7 +69,10 @@ xwingLoader.load(
 	},
 );
 
-xwingLoader.onLoad = function(){console.log('loaded')};
+let manager = new THREE.LoadingManager();
+manager.onLoad = function (){
+	console.log('loaded');
+}
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
