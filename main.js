@@ -59,6 +59,41 @@ yodaLoader.load("yoda/scene.gltf", gltf => {
   scene.add(gltf.scene);
 });
 
+// Three.js loader to track object load progress:
+
+var manager = new THREE.LoadingManager();
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+
+	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+
+};
+
+manager.onLoad = function ( ) {
+
+	console.log( 'Loading complete!');
+
+};
+
+
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+
+};
+
+manager.onError = function ( url ) {
+
+	console.log( 'There was an error loading ' + url );
+
+};
+
+var loader = new THREE.OBJLoader( manager );
+loader.load( 'file.obj', function ( object ) {
+
+	//
+
+} );
+
 // cube creation to act as hotspots which can be clicked on the 3D model:
 
 const xwingObjects = []; // Array to store all boxes once they have been created, used by a raycaster to detect if objects have been selected
