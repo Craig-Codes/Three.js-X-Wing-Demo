@@ -59,7 +59,7 @@ xwingLoader.load(
 
 	},
 	// called while loading is progressing
-	function ( xhr ) {
+	function ( onLoad, 'scene.gltf' ) {
 
 		console.log( 'completed Loading' );
 
