@@ -74,6 +74,10 @@ manager.onLoad = function (){
 	console.log('loaded');
 }
 
+manager.itemEnd = function (){
+	console.log('loaded');
+}
+
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
   const yoda = gltf.scene.children[0]; // get the 3d model
