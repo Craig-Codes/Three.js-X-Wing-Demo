@@ -57,11 +57,11 @@ xwingLoader.load(
 
 		console.log( 'Started Loading' );
 
-	}
+	},
 	// called while loading is progressing
-	function ( xhr ) {
+	function ( onProgress ) {
 
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		console.log( 'completed Loading' );
 
 	},
 	// called when loading has errors
