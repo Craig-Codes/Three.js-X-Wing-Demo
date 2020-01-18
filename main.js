@@ -42,6 +42,7 @@ document.body.appendChild(renderer.domElement); // elements created by the rende
 const controls = new THREE.OrbitControls(camera, renderer.domElement); // Needed for Orbital controls to work
 
 const xwingLoader = new THREE.GLTFLoader();
+xwingLoader.onLoad = function(){console.log('loaded');
 
 xwingLoader.load(
 	// resource URL
@@ -65,10 +66,10 @@ xwingLoader.load(
 
 		console.log( 'An error happened' );
 
-	}
+	},
 );
 
-xwingLoader.onLoad = function(){console.log('loaded');
+
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
