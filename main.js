@@ -60,10 +60,14 @@ xwingLoader.load(
 		console.log( 'Started Loading' );
 
 	},
-);
 
-xwingLoader.onload = function() {
-  console.log(`xwing loaded`);
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+
 };
 
 xwingLoader.onload = function() {
