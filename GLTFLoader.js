@@ -1471,7 +1471,8 @@ THREE.GLTFLoader = ( function () {
 				cameras: dependencies[ 2 ],
 				asset: json.asset,
 				parser: parser,
-				userData: {}
+				userData: {},
+				console.log("loaded"),
 			};
 
 			addUnknownExtensionsToUserData( extensions, result, json );
