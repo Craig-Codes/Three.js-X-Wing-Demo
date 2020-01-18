@@ -60,7 +60,11 @@ xwingLoader.load(
 
 	},
 	// called while loading is progressing
-	
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
 	// called when loading has errors
 	function ( error ) {
 
@@ -69,31 +73,6 @@ xwingLoader.load(
 	},
 );
 
-var manager = new THREE.LoadingManager();
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-
-	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-
-};
-
-manager.onLoad = function ( ) {
-
-	console.log( 'Loading complete!');
-
-};
-
-
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-
-	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-
-};
-
-manager.onError = function ( url ) {
-
-	console.log( 'There was an error loading ' + url );
-
-};
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
