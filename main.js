@@ -59,18 +59,7 @@ yodaLoader.load("yoda/scene.gltf", gltf => {
   scene.add(gltf.scene);
 });
 
-// Three.js loader to track object load progress:
-
-let manager = new THREE.LoadingManager();
-manager.onProgress = function (  ) {
-  console.log("loading");
-};
-
-manager.onLoad = function ( ) {
-
-	console.log( 'Loading complete!');
-
-};
+// Three.js loader to track object load progress - moved to the three.js file
 
 
 // cube creation to act as hotspots which can be clicked on the 3D model:
