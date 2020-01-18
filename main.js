@@ -41,15 +41,30 @@ document.body.appendChild(renderer.domElement); // elements created by the rende
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement); // Needed for Orbital controls to work
 
-const xwingLoader = new THREE.GLTFLoader(); // loads in the 3D model in GLTF format. Other loaders for other file types are avaliable.
-xwingLoader.load("scene.gltf", gltf => {
+
+loader.load(
+	// resource URL
+	'scene.gltf',
+	// called when the resource is loaded
+	function ( gltf ) {
   const xwing = gltf.scene.children[0]; // Adds the 3D model to gltf.scene.children[0].
   xwing.scale.set(7, 7, 7); // changes the 3D Model size
-  scene.add(gltf.scene); // adds the model to the three.js scene
-},
-                function ( onLoad ) {
+		scene.add( gltf.scene );
 
-		console.log( 'Loaded');});
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
