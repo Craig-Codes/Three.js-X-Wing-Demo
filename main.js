@@ -69,14 +69,17 @@ progress.appendChild(progressBar);
 document.body.appendChild(progress);
 
 var manager = new THREE.LoadingManager();
-manager.onProgress = function ( item, loaded, total ) {
-  progressBar.style.width = (loaded / total * 100) + '%';
+manager.onProgress = function (  ) {
+  console.log("loading");
 };
 
-function addRandomPlaceHoldItImage(){
-  var r = Math.round(Math.random() * 4000);
-  new THREE.ImageLoader(manager).load('https://placehold.it/' + r + 'x' + r);
-}
+manager.onLoad = function ( ) {
+
+	console.log( 'Loading complete!');
+
+};
+
+
 
 for(var i = 0; i < 10; i++) addRandomPlaceHoldItImage();
 
