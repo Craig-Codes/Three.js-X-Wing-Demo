@@ -68,7 +68,7 @@ xwingLoader.load(
 
 	}
 
-};
+);
 
 xwingLoader.onload = function() {
   console.log(`xwing loaded`);
