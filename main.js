@@ -41,6 +41,7 @@ document.body.appendChild(renderer.domElement); // elements created by the rende
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement); // Needed for Orbital controls to work
 
+var loader = new THREE.GLTFLoader();
 
 loader.load(
 	// resource URL
