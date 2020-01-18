@@ -80,9 +80,6 @@ manager.onLoad = function ( ) {
 };
 
 
-
-for(var i = 0; i < 10; i++) addRandomPlaceHoldItImage();
-
 // cube creation to act as hotspots which can be clicked on the 3D model:
 
 const xwingObjects = []; // Array to store all boxes once they have been created, used by a raycaster to detect if objects have been selected
