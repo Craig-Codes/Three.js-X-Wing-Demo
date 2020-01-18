@@ -61,38 +61,24 @@ yodaLoader.load("yoda/scene.gltf", gltf => {
 
 // Three.js loader to track object load progress:
 
+var progress = document.createElement('div');
+var progressBar = document.createElement('div');
+
+progress.appendChild(progressBar);
+
+document.body.appendChild(progress);
+
 var manager = new THREE.LoadingManager();
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-
-	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-
+manager.onProgress = function ( item, loaded, total ) {
+  progressBar.style.width = (loaded / total * 100) + '%';
 };
 
-manager.onLoad = function ( ) {
+function addRandomPlaceHoldItImage(){
+  var r = Math.round(Math.random() * 4000);
+  new THREE.ImageLoader(manager).load('http://placehold.it/' + r + 'x' + r);
+}
 
-	console.log( 'Loading complete!');
-
-};
-
-
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-
-	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-
-};
-
-manager.onError = function ( url ) {
-
-	console.log( 'There was an error loading ' + url );
-
-};
-
-var loader = new THREE.OBJLoader( manager );
-loader.load( 'file.obj', function ( object ) {
-
-	//
-
-} );
+for(var i = 0; i < 10; i++) addRandomPlaceHoldItImage();
 
 // cube creation to act as hotspots which can be clicked on the 3D model:
 
