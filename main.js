@@ -61,14 +61,7 @@ yodaLoader.load("yoda/scene.gltf", gltf => {
 
 // Three.js loader to track object load progress:
 
-var progress = document.createElement('div');
-var progressBar = document.createElement('div');
-
-progress.appendChild(progressBar);
-
-document.body.appendChild(progress);
-
-var manager = new THREE.LoadingManager();
+let manager = new THREE.LoadingManager();
 manager.onProgress = function (  ) {
   console.log("loading");
 };
