@@ -61,11 +61,11 @@ text-align: center;
 #preLoader h1{
   color: yellow;
   font-size: 4vh;
-  display:inline-block;
+  display:block;
 }
 
 #preLoader img{
   background-color: none;
   font-size: 4vh;
-  display:inline-block;
+  display:block;
 }
