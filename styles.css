@@ -56,9 +56,9 @@ text-align: center;
   font-size: 4vh;
   position: absolute;
   top: 70%;
-    left: 55%;
-    -webkit-transform: translate(-70%, -55%);
-    transform: translate(-70%, -55%);
+    left: 57%;
+    -webkit-transform: translate(-70%, -57%);
+    transform: translate(-70%, -57%);
 }
 
 #preLoader h1{
