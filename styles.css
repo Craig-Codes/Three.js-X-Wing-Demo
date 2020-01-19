@@ -21,7 +21,7 @@ h1 {
   width: 100%;
   text-align: center;
   z-index: 100;
-  display: block;
+  display: hidden;
   font-family: "star_jedi_hollowregular", Arial, sans-serif;
   font-size: 4vh;
 
@@ -36,27 +36,14 @@ h2 {
   width: 100%;
   text-align: center;
   z-index: 100;
-  display: block;
+  display: hidden;
 }
 
 #rebel {
   width: 70px;
   height: 70px;
   position: absolute;
-  display: block;
+  display: hidden;
   top: 30px;
   right: 50px;
-}
-
-div {
-  width: 200px;
-  height: 20px;
-  background: #000;
-  border: 2px solid #000;
-}
-div > div {
-  width: 200px;
-  height: 20px;
-  background: red;
-  border: none;
 }
