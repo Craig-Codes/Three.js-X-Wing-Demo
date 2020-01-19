@@ -50,9 +50,9 @@ body {
 #preLoader{
   display:inline;
   color: yellow;
-
-  width: 100px;
-  height: 100px;
+text-align: center;
+  width: 500px;
+  height: 500px;
   font-size: 4vh;
   position: absolute;
   margin: 0 auto;
@@ -61,5 +61,5 @@ body {
 #preLoader h1{
   color: yellow;
   font-size: 4vh;
-  align-text: center;
+  display:inline-block;
 }
