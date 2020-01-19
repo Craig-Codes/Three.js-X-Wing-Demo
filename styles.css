@@ -57,3 +57,9 @@ body {
   position: absolute;
   margin: 0 auto;
 }
+
+#preLoader h1{
+  color: yellow;
+  font-size: 4vh;
+  align-text: center;
+}
