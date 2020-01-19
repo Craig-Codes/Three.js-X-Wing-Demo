@@ -2092,6 +2092,11 @@ THREE.GLTFLoader = ( function () {
 		if ( material.aoMap && geometry.attributes.uv2 === undefined && geometry.attributes.uv !== undefined ) {
 
 			console.log( 'THREE.GLTFLoader: Duplicating UVs to support aoMap.' );
+			console.log('All Three.js Objects loaded');
+							    document.getElementById("x-wing-heading").style.display = "block";
+							    document.getElementById("component").style.display = "block";
+							    document.getElementById("rebel").style.display = "block";
+							    document.getElementById("preLoader").style.display = "none";
 			geometry.setAttribute( 'uv2', new THREE.BufferAttribute( geometry.attributes.uv.array, 2 ) );
 
 		}
