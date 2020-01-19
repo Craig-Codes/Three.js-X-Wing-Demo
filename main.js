@@ -70,7 +70,10 @@ xwingLoader.load(
 
 );
 
-document.getElementsByTagName("BODY")[0].onload = function(){console.log('All Three.js Objects loaded');};
+document.getElementsByTagName("BODY")[0].onload = function(){console.log('All Three.js Objects loaded');
+							    document.getElementsByTagName("h1").display = "block";
+							    document.getElementsByTagName("h2").display = "block";
+							    document.getElementsById("rebel").display = "block";};
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
