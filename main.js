@@ -74,7 +74,7 @@ document.getElementsByTagName("BODY")[0].onload = function(){console.log('All Th
 							    document.getElementById("x-wing-heading").style.display = "block";
 							    document.getElementById("component").style.display = "block";
 							    document.getElementById("rebel").style.display = "block";
-							    document.getElementById("preLoader")..style.display = "none";
+							    document.getElementById("preLoader").style.display = "none";
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
