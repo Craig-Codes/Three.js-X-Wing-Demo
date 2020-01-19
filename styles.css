@@ -63,3 +63,9 @@ text-align: center;
   font-size: 4vh;
   display:inline-block;
 }
+
+#preLoader img{
+  background-color: none;
+  font-size: 4vh;
+  display:inline-block;
+}
