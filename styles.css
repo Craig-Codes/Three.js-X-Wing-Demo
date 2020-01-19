@@ -12,6 +12,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
+  font-family: "star_jedi_hollowregular", Arial, sans-serif;
 }
 
 #x-wing-heading {
@@ -22,7 +23,6 @@ body {
   text-align: center;
   z-index: 100;
   display: none;
-  font-family: "star_jedi_hollowregular", Arial, sans-serif;
   font-size: 4vh;
 
 }
@@ -30,7 +30,6 @@ body {
 #component {
   color: white;
   position: absolute;
-  font-family: "star_jedi_hollowregular", Arial, sans-serif;
   font-size: 2.5vh;
   bottom: 100px;
   width: 100%;
