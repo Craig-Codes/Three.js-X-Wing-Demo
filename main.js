@@ -70,11 +70,11 @@ xwingLoader.load(
 
 );
 
-xwingLoader.onload = function() {
-  console.log(`xwing loaded`)};
+document.getElementsByTagName("BODY")[0].onload = objectLoadedActions();
 
-document.getElementsByTagName("BODY")[0].onload = function(){console.log('The Script will load now.')};
-
+function objectLoadedActions(){
+	console.log('All Three.js Objects loaded')
+};
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
 yodaLoader.load("yoda/scene.gltf", gltf => {
