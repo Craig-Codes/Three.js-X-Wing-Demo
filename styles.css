@@ -55,10 +55,10 @@ text-align: center;
   height: 500px;
   font-size: 4vh;
   position: absolute;
-  top: 65%;
-    left: 60%;
-    -webkit-transform: translate(-65%, -60%);
-    transform: translate(-65%, -60%);
+  top: 70%;
+    left: 55%;
+    -webkit-transform: translate(-70%, -55%);
+    transform: translate(-70%, -55%);
 }
 
 #preLoader h1{
