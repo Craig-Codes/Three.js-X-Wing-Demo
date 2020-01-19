@@ -194,7 +194,7 @@ const mouse = new THREE.Vector2(); // mouse needs setup as a 2D object so that r
 
 // Event Listeners
 const rebelButton = document.getElementsByTagName("img"); // returns an array of elements
-rebelButton[0].addEventListener("click", yodaReveal);
+rebelButton[1].addEventListener("click", yodaReveal);
 document.addEventListener("mousedown", onDocumentMouseDown, false);
 document.addEventListener("touchstart", onDocumentTouchStart, false); // enables on mobile / touch devices
 document.addEventListener("mousemove", onMouseMove);
