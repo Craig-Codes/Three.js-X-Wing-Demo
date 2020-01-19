@@ -48,17 +48,15 @@ body {
 }
 
 #preLoader{
-  display:inline;
+  display:block;
   color: yellow;
 text-align: center;
   width: 500px;
   height: 500px;
   font-size: 4vh;
   position: absolute;
-  top: 70%;
-    left: 57%;
-    -webkit-transform: translate(-70%, -57%);
-    transform: translate(-70%, -57%);
+  top: 50vh;
+    left: 50vw;
 }
 
 #preLoader h1{
