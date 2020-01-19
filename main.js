@@ -71,8 +71,8 @@ xwingLoader.load(
 );
 
 document.getElementsByTagName("BODY")[0].onload = function(){console.log('All Three.js Objects loaded');
-							    document.querySelectorAll('h1').style.display = "block";
-							    document.querySelectorAll('h2').style.display = "block";
+							    document.getElementById("x-wing-heading").style.display = "block";
+							    document.getElementById("component").style.display = "block";
 							    document.getElementById("rebel").style.display = "block";};
 
 const yodaLoader = new THREE.GLTFLoader(); // loads in the loader file
