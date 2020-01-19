@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-h1 {
+#x-wing-heading {
   color: yellow;
   position: absolute;
   top: 50px;
@@ -27,7 +27,7 @@ h1 {
 
 }
 
-h2 {
+#component {
   color: white;
   position: absolute;
   font-family: "star_jedi_hollowregular", Arial, sans-serif;
