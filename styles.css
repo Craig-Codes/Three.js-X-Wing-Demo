@@ -68,7 +68,7 @@ text-align: center;
 }
 
 #preLoader img{
-  background-color: none;
+  background-color: red;
   font-size: 4vh;
   display:block;
   margin-left: auto;
